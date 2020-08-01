@@ -93,7 +93,7 @@ app.get('/checkout', function (req, res) {
         },
         notification_url: "https://jcperez-mp-commerce-nodejs.herokuapp.com/webhook",
         auto_return: "approved",
-        external_reference: "j.perez@outlook.com"
+        external_reference: "juniocarl@outlook.com"
     };
 
     axios.post('https://api.mercadopago.com/checkout/preferences?access_token=' + TOKEN, payload)
