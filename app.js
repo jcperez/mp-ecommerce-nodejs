@@ -15,6 +15,9 @@ app.use(bodyParser.json())
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+axios.defaults.headers.post['x-integrator-id'] = 'dev_24c65fb163bf11ea96500242ac130004';
+
+
 app.get('/', function (req, res) {
     res.render('home');
 });
@@ -93,14 +96,7 @@ app.get('/checkout', function (req, res) {
         external_reference: "j.perez@outlook.com"
     };
 
-
-    axios.post('https://api.mercadopago.com/checkout/preferences?access_token=' + TOKEN, 
-        {
-            headers: {
-                'x-integrator-id': 'dev_24c65fb163bf11ea96500242ac130004'
-            }
-        },
-        payload)
+    axios.post('https://api.mercadopago.com/checkout/preferences?access_token=' + TOKEN, payload)
         .then(function (response) {
             res.redirect(response.data.init_point);
         })
