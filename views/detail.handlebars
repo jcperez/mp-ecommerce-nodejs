@@ -1,3 +1,9 @@
+<script>
+    function redirect() {
+        var qs = window.location.href.split('?')[1];
+        window.location.href = '/checkout?' + qs;
+    }
+</script>
 
 <div class="as-search-wrapper" role="main">
     <div class="as-navtuck-wrapper">
@@ -84,7 +90,7 @@
                                     {{ unit }}
                                 </h3>
                             </div>
-                            <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                            <button type="submit" class="mercadopago-button" formmethod="post" onclick="redirect()" >Pagar</button>
                         </div>
                     </div>
                 </div>
